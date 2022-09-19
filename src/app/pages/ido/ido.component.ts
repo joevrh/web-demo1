@@ -128,7 +128,7 @@ export class IdoComponent implements OnInit {
     let tx = new FeeMarketEIP1559Transaction(this.rawTx);
 
     let msgHash = tx.getMessageToSign(false);
-    let message = "0x"+msgHash.toString('hex');
+    let message = msgHash.toString('hex');
 
     this.needSignHash = message;
 
@@ -147,7 +147,8 @@ export class IdoComponent implements OnInit {
 
     this.rawTx.r = r;
     this.rawTx.s = s;
-    this.rawTx.v = this.web3.utils.hexToNumber(v) - 27;
+    //this.rawTx.v = this.web3.utils.hexToNumber(v) - 27;
+    this.rawTx.v = this.web3.utils.hexToNumber(v);
 
 
     let tx = new FeeMarketEIP1559Transaction(this.rawTx);

@@ -1,0 +1,31 @@
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>addressIndex</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="addressIndex"  />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>待签名串</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="unsingedTxt"  />
+  </nz-form-control>
+</nz-form-item>
+
+<div style="margin-left:30%;">
+  <button nz-button nzType="primary" (click)="sign()">签名</button>
+</div>
+
+<nz-form-item style="margin-top:30px;">
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>签名</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="singedTxt"  />
+  </nz-form-control>
+</nz-form-item>
