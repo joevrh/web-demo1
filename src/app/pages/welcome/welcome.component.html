@@ -1,0 +1,90 @@
+<!--
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24"  nzRequired>
+    <span>地址</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="address"  />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>余额</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="balance"  />
+  </nz-form-control>
+</nz-form-item>
+
+<div>
+<button nz-button nzType="primary" (click)="onBalance()">余额</button>
+</div>
+
+
+
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>地址</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="toAddress"  />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>金额</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="amount"  />
+  </nz-form-control>
+</nz-form-item>
+
+<div>
+  <button nz-button nzType="primary" (click)="onTransfer()">转帐</button>
+</div>
+-->
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>邮箱</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="email"  />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>验证码</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="nonce"  />
+  </nz-form-control>
+</nz-form-item>
+
+<div>
+  <button nz-button nzType="primary" (click)="onLogin()">注册</button>
+
+  <button nz-button nzType="primary" (click)="onRegisterVerify()" style="margin-left:100px;">注册验证</button>
+</div>
+
+
+<!--<div style="margin-top:50px;">
+  <button nz-button nzType="primary" (click)="onBind()">绑定</button>
+</div>-->
+
+<div style="margin-top:50px;">
+  <button nz-button nzType="primary" (click)="onLogin()">登录</button>
+</div>
+
+
+<div style="margin-top:50px;">
+  <button nz-button nzType="primary" (click)="onListing()">List</button>
+</div>
+
+<div style="margin-top:50px;">
+  <button nz-button nzType="primary" (click)="onListWeapon()">ListWeapon</button>
+</div>
