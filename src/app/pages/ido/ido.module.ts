@@ -6,13 +6,10 @@ import { IdoComponent } from './ido.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import {NzFormModule} from "ng-zorro-antd/form";
 import {FormsModule} from "@angular/forms";
-import {WelcomeRoutingModule} from '../welcome/welcome-routing.module';
-import {IdoSignComponent} from "./ido-sign.component";
 
 @NgModule({
   declarations: [
-    IdoComponent,
-    IdoSignComponent
+    IdoComponent
   ],
   imports: [
     CommonModule,

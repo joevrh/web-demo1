@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {IdoComponent} from './ido.component';
-import {IdoSignComponent} from "../ido-sign/ido-sign.component";
+import {BroadcastComponent} from "../broadcast/broadcast.component";
+import {LedgerComponent} from "./ledger.component";
 
 const routes: Routes = [
-  { path: '', component: IdoComponent }
+  { path: '', component: LedgerComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class IdoRoutingModule { }
+export class LedgerRoutingModule { }

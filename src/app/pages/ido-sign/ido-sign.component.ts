@@ -12,7 +12,7 @@ declare const window: any;
 
 
 @Component({
-  selector: 'app-ido',
+  selector: 'app-ido-sign',
   templateUrl: './ido-sign.component.html',
   styleUrls: ['./ido-sign.component.scss']
 })
