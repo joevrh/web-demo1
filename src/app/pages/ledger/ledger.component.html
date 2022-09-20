@@ -1,1 +1,79 @@
-<p>ledger works!</p>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>IDO合约</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="idoAddress"  readonly />
+  </nz-form-control>
+</nz-form-item>
+
+<div style="margin-left:30%;margin-top:30px;">
+  <button nz-button nzType="primary" (click)="onApprove()">授权</button>
+</div>
+
+<div style="margin-top:30px;"></div>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>购买数量(USDT)</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="usdtAmount"  />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>maxFeePerGas(gwei)</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="gasPrice"  />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>maxPriorityFeePerGas(gwei)</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="maxPriorityFeePerGas"  />
+  </nz-form-control>
+</nz-form-item>
+
+<div style="margin-left:30%;">
+  <button nz-button nzType="primary" (click)="onGetTx()">获取待签名串</button>
+</div>
+
+<nz-form-item style="margin-top:30px;">
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>待签名串</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="needSignHash"  />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>addressIndex</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="addressIndex"  />
+  </nz-form-control>
+</nz-form-item>
+
+
+<div style="margin-left:30%;">
+  <button nz-button nzType="primary" (click)="onGetRawTx()">获得rawTransaction</button>
+</div>
+
+<nz-form-item style="margin-top:30px;">
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>RawTransaction</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="rawTransaction"  />
+  </nz-form-control>
+</nz-form-item>
+

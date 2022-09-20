@@ -43,5 +43,7 @@ export class BroadcastComponent implements OnInit {
         console.log('Hash:', hash);
       });
     }
+    alert("已提交");
+
   }
 }
