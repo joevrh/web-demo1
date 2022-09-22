@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/ido' },
+  { path: '', pathMatch: 'full', redirectTo: '/ledger' },
   { path: 'ledger', loadChildren: () => import('./pages/ledger/ledger.module').then(m => m.LedgerModule) },
   { path: 'broadcast', loadChildren: () => import('./pages/broadcast/broadcast.module').then(m => m.BroadcastModule) },
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },

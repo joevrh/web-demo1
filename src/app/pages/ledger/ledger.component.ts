@@ -24,7 +24,7 @@ export class LedgerComponent implements OnInit {
 
   usdtAddress: string = '0x111b4e60847bf1642c0b59ff44834bf2447e8597';
 
-  idoAddress: string = '0x1bf50bddaaed8a2a2888d1ec27eabf06bcaed7aa';
+  idoAddress: string = '0xbF967F9C210CF3B09f875046a3d02774b0d10d42';
 
   ngOnInit(): void {
   }
@@ -159,7 +159,7 @@ export class LedgerComponent implements OnInit {
 
       this.signTxWithResolution(
         eth,
-        "44'/60'/0'/0/" + this.addressIndex,
+        "44'/60'/"+ this.addressIndex+"'/0/0",
         this.needSignHash
       ).then((result) =>{
 

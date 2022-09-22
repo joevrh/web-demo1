@@ -31,8 +31,10 @@ export class BroadcastComponent implements OnInit {
       lines = this.transactions.split("\r\n");
     }else if(this.transactions.indexOf("\r")>0){
       lines = this.transactions.split("\r");
-    }else if(this.transactions.indexOf("\n")>0){
+    }else if(this.transactions.indexOf("\n")>0) {
       lines = this.transactions.split("\n");
+    }else{
+      lines.push(this.transactions);
     }
 
     console.log(lines);
