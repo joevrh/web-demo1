@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'subgraph', loadChildren: () => import('./pages/subgraph/subgraph.module').then(m => m.SubgraphModule) },
   { path: 'ido', loadChildren: () => import('./pages/ido/ido.module').then(m => m.IdoModule) },
   { path: 'ido-sign', loadChildren: () => import('./pages/ido-sign/ido-sign.module').then(m => m.IdoSignModule) },
+  { path: 'recapcha', loadChildren: () => import('./pages/recapcha/recapcha.module').then(m => m.RecapchaModule) },
 ];
 
 @NgModule({
