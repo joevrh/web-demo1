@@ -1,2 +1,15 @@
 
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>地址</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="address"  />
+  </nz-form-control>
+</nz-form-item>
+
 <re-captcha (resolved)="resolved($event)" (error)="onError($event)" errorMode="handled" siteKey="6LcurCEiAAAAALhQEF4PwdugT8qOf53oJhqCERZo"></re-captcha>
+
+<div style="margin-left:30%;">
+  <button nz-button nzType="primary" (click)="onSubmit()">提交</button>
+</div>
