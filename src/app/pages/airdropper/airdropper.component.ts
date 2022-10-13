@@ -116,8 +116,8 @@ export class AirdropperComponent implements OnInit {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
 
-    let contractAddress = "0xbBC85D2f3E21Ec76B97F7cc7b7717f3AD6A626BC";
-    let tokenAddress = "0x7524AEa6ec6e74c03B821247FB568Bcf88BC760B";
+    let contractAddress = "0x18fC18b673Fea56D8D698a858bFB364BA9CDa6c2";
+    let tokenAddress = "0xa59e341e8047498700eD244814b01b34547fb21B";
     let tokenContract = new this.web3.eth.Contract(JSON.parse(this.abiService.airdropper), contractAddress);
 
     if(this.addresses==null || this.addresses?.length==0){
