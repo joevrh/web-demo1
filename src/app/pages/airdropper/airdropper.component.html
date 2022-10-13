@@ -1,0 +1,21 @@
+<div style="display:flex;">
+
+  <div>
+    <textarea rows="10" nz-input [(ngModel)]="addressList" style="width: 400px;"></textarea>
+    <div>lines:{{addressCount}}</div>
+  </div>
+  <div style="margin-left:30px;">
+    <textarea rows="10" nz-input [(ngModel)]="amountList" style="width: 400px; "></textarea>
+    <div>lines:{{amountCount}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total:{{amountTotal}}</div>
+  </div>
+
+</div>
+
+<div style="display:flex;margin-top:100px;">
+  <button nz-button nzType="primary" nzDanger (click)="onClear()">Clear</button>
+  <button nz-button nzType="primary" (click)="onCheck()" style="margin-left:50px;">Check</button>
+  <button nz-button nzType="primary" (click)="onSubmit()" style="margin-left:50px;">Submit</button>
+</div>
+
+
+

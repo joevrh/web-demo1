@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {IdoComponent} from "../ido/ido.component";
-import {BroadcastComponent} from "./broadcast.component";
-import {AirdropperComponent} from "../airdropper/airdropper.component";
+import {AirdropperComponent} from "./airdropper.component";
 
 const routes: Routes = [
   { path: '', component: AirdropperComponent },
@@ -12,4 +10,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BroadcastRoutingModule { }
+export class AirdropperRoutingModule { }
