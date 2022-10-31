@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'ido-sign', loadChildren: () => import('./pages/ido-sign/ido-sign.module').then(m => m.IdoSignModule) },
   { path: 'recapcha', loadChildren: () => import('./pages/recapcha/recapcha.module').then(m => m.RecapchaModule) },
   { path: 'airdropper', loadChildren: () => import('./pages/airdropper/airdropper.module').then(m => m.AirdropperModule) },
+  { path: 'binance-nft', loadChildren: () => import('./pages/binance-nft/binance-nft.module').then(m => m.BinanceNftModule) },
 ];
 
 @NgModule({

@@ -1,0 +1,46 @@
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>Hero NFT Contract</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="contractAddress"  [disabled]="true" style="width:400px" />
+  </nz-form-control>
+</nz-form-item>
+
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>Binance Deposit Address</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="binanceAddress"  [disabled]="true"  style="width:400px" />
+  </nz-form-control>
+</nz-form-item>
+
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>Private Key</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <input nz-input [(ngModel)]="privateKey"   style="width:400px" />
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item>
+  <nz-form-label [nzSm]="6" [nzXs]="24" >
+    <span>NFT IDs</span>
+  </nz-form-label>
+  <nz-form-control [nzSm]="14" [nzXs]="24">
+    <textarea rows="10" nz-input [(ngModel)]="nftIds" style="width: 400px;"></textarea>
+  </nz-form-control>
+</nz-form-item>
+
+
+<div style="margin-left:30%; margin-top:30px;">
+  <button nz-button nzType="primary" (click)="onSubmit()" [disabled]="btnSubmitDisable">提交</button>
+</div>
+
+<div style="margin-top: 30px;margin-left: 300px;">已处理: {{counter}}</div>
+
+
