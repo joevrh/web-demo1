@@ -18,12 +18,12 @@ export class BinanceNftComponent implements OnInit {
   constructor(private abiService: AbiService) { }
 
 
-  //contractAddress: string = "0x3adbdfa13c0b6931257833f4a04e653279e2f4aa";
-  contractAddress: string = "0xfcec5833426a26db74c6dca0432b7cdd226781f8";
+  contractAddress: string = "0x3adbdfa13c0b6931257833f4a04e653279e2f4aa";
+  //contractAddress: string = "0xfcec5833426a26db74c6dca0432b7cdd226781f8";
 
 
-  //binanceAddress: string = "0x3344dB6026F58C1946792eE0f256C22A33099DD0";
-  binanceAddress: string = "0xbeD54DB7b85A2946AE7E556Bb0A4CeC5F8758740";
+  binanceAddress: string = "0xC67DB0dF922238979DA0fD00D46016E8Ae14ceCb";
+  //binanceAddress: string = "0xbeD54DB7b85A2946AE7E556Bb0A4CeC5F8758740";
 
   privateKey: string | null;
 
@@ -33,11 +33,20 @@ export class BinanceNftComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //let url = "https://eth-mainnet.g.alchemy.com/v2/9igsHeac4KPsVORxit2PdGMdtUKEavHZ";
-    let url = "https://eth-goerli.g.alchemy.com/v2/qw86kimJ3-FIWGRLGlDwDplDbX0-2CYB";
+    let url = "https://eth-mainnet.g.alchemy.com/v2/9igsHeac4KPsVORxit2PdGMdtUKEavHZ";
+    //let url = "https://eth-goerli.g.alchemy.com/v2/qw86kimJ3-FIWGRLGlDwDplDbX0-2CYB";
     this.web3 = AlchemyWeb3.createAlchemyWeb3(
       url
     );
+
+    setTimeout(async ()=>{
+      let block = await this.web3.eth.getBlock("latest");
+
+      let baseFeePerGas = block.baseFeePerGas;
+      baseFeePerGas = Math.floor(baseFeePerGas * 15 / 10);
+
+      this.gasPrice = baseFeePerGas / 1000000000;
+    });
 
   }
 
@@ -46,6 +55,7 @@ export class BinanceNftComponent implements OnInit {
 
   btnSubmitDisable = false;
 
+  gasPrice: number = 0;
 
   async onSubmit(){
 
@@ -61,16 +71,16 @@ export class BinanceNftComponent implements OnInit {
       return;
     }
 
-    this.btnSubmitDisable = true;
-
     let address = this.web3.eth.accounts.privateKeyToAccount(this.privateKey).address;
 
     let chainId = await this.web3.eth.getChainId();
 
-    /*if(chainId != 1){
+    if(chainId != 1){
       alert("please switch to ETH mainnet");
       return;
-    }*/
+    }
+
+    this.btnSubmitDisable = true;
 
     this.nftIds = this.nftIds.trim();
 
@@ -101,13 +111,14 @@ export class BinanceNftComponent implements OnInit {
 
       let maxPriorityFeePerGas = await this.web3.eth.getMaxPriorityFeePerGas();
       maxPriorityFeePerGas = (new BN(maxPriorityFeePerGas.substring(2), 16)).toNumber();
-      maxPriorityFeePerGas = Math.floor(maxPriorityFeePerGas * 11 / 10);
+      maxPriorityFeePerGas = Math.floor(maxPriorityFeePerGas * 15 / 10);
 
       let block = await this.web3.eth.getBlock("latest");
 
       let baseFeePerGas = block.baseFeePerGas;
-      baseFeePerGas = Math.floor(baseFeePerGas * 11 / 10);
+      baseFeePerGas = Math.floor(baseFeePerGas * 15 / 10);
 
+      this.gasPrice = baseFeePerGas / 1000000000;
 
       let callData = this.web3.eth.abi.encodeFunctionCall(
         {
@@ -139,7 +150,7 @@ export class BinanceNftComponent implements OnInit {
         nonce: nonce,
         maxFeePerGas: baseFeePerGas + maxPriorityFeePerGas,
         maxPriorityFeePerGas: maxPriorityFeePerGas,
-        gasLimit: 200000,
+        gasLimit: 1000000,
         to: this.contractAddress,
         value: '0x0',
         data: callData,
