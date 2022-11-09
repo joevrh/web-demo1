@@ -7,11 +7,13 @@ import {BroadcastRoutingModule} from "../broadcast/broadcast-routing.module";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzFormModule} from "ng-zorro-antd/form";
 import {FormsModule} from "@angular/forms";
+import {VrhDropperComponent} from "./vrh-dropper/vrh-dropper.component";
 
 
 @NgModule({
   declarations: [
-    AirdropperComponent
+    AirdropperComponent,
+    VrhDropperComponent
   ],
   imports: [
     CommonModule,
