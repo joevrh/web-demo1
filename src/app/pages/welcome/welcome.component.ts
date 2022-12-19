@@ -259,13 +259,22 @@ export class WelcomeComponent implements OnInit {
 
   }
 
+  scale2Format = (value: any = 0) => {
+
+    var num = new BN(value * 100); //整形会直接取成整数的
+    return num.toNumber() / 100;
+
+  };
+
   async onLogin(){
 
-    this.accessorService.get(window.serviceUrl +  "/vrh-sys-api/api/v1/public/getNonce")
+    console.log(this.scale2Format(2711.105192));
+
+    /*this.accessorService.get(window.serviceUrl +  "/vrh-sys-api/api/v1/public/getNonce")
       .subscribe((response: any)=>{
         console.log(response.data);
         this.login(response.data);
-      })
+      })*/
   }
 
 

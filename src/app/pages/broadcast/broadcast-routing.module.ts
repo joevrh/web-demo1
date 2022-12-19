@@ -5,7 +5,7 @@ import {BroadcastComponent} from "./broadcast.component";
 import {AirdropperComponent} from "../airdropper/airdropper.component";
 
 const routes: Routes = [
-  { path: '', component: AirdropperComponent },
+  { path: '', component: BroadcastComponent },
 ];
 
 @NgModule({

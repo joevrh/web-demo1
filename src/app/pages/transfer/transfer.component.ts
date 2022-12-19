@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {AbiService} from "../../../service/abi.service";
-import BN from 'bn.js';
+import {AbiService} from "../../service/abi.service";
+import BN from "bn.js";
 
 declare const Web3: any;
 declare const window: any;
 declare const ethereum: any;
 
 @Component({
-  selector: 'app-vrh-dropper',
-  templateUrl: './vrh-dropper.component.html',
-  styleUrls: ['./vrh-dropper.component.scss']
+  selector: 'app-transfer',
+  templateUrl: './transfer.component.html',
+  styleUrls: ['./transfer.component.scss']
 })
-export class VrhDropperComponent implements OnInit {
+export class TransferComponent implements OnInit {
 
   constructor(public abiService: AbiService) { }
 
@@ -27,8 +27,43 @@ export class VrhDropperComponent implements OnInit {
 
   web3: any = new Web3(window.web3.currentProvider);
 
+  contractAddress: string;
+  tokenAddress: string;
   ngOnInit(): void {
+    this.contractAddress = "0x52d351fdd1cfb8c0e127e6219db62815307bb209";
+    this.tokenAddress = "0xa59e341e8047498700eD244814b01b34547fb21B";
+
+    //this.contractAddress = "0x5fd2b4c79cda423fcf088ab7a69aeb835de99cdc";
+    //this.tokenAddress = "0x7524AEa6ec6e74c03B821247FB568Bcf88BC760B";
   }
+
+  async onApprove(){
+
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+
+    let tokenContract = new this.web3.eth.Contract(JSON.parse(this.abiService.tokenAbi), this.tokenAddress);
+
+    let allowance = await tokenContract.methods.allowance(account, this.contractAddress).call();
+    if(allowance=="0"){
+      alert('跳转MOH授权!');
+
+      await tokenContract.methods.approve(this.contractAddress, '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff').send({gas: 80000, from: account}, (err:any,  result: any)=>{
+        console.log(err);
+        console.log(result);
+      });
+
+      allowance = await tokenContract.methods.allowance(account, this.contractAddress).call();
+    }
+
+    if(allowance == "0"){
+      alert('MOH未授权!');
+      return;
+    }else{
+      alert('MOH已授权!');
+    }
+  }
+
 
   onClear(){
     this.addressList = null;
@@ -116,9 +151,8 @@ export class VrhDropperComponent implements OnInit {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
 
-    let contractAddress = "0x18fC18b673Fea56D8D698a858bFB364BA9CDa6c2";
-    let tokenAddress = "0xead482da0793b00bbae0e34c8cfae6daf29a44b2";
-    let tokenContract = new this.web3.eth.Contract(JSON.parse(this.abiService.airdropper), contractAddress);
+
+    let tokenContract = new this.web3.eth.Contract(JSON.parse(this.abiService.transferAbi), this.contractAddress);
 
     if(this.addresses==null || this.addresses?.length==0){
       alert("Please do check first!");
@@ -146,10 +180,11 @@ export class VrhDropperComponent implements OnInit {
       amounts.push(amountHex);
     }
 
-    await tokenContract.methods.doAirDrop2(tokenAddress, this.addresses, amounts).send({from: account}, (err:any,  result: any)=>{
+    await tokenContract.methods.transfer(this.tokenAddress, this.addresses, amounts).send({from: account}, (err:any,  result: any)=>{
       console.log(err);
       console.log(result);
     });
 
   }
+
 }

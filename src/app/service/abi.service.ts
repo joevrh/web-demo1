@@ -311,5 +311,6 @@ export class AbiService {
 
   tokenAddress: string = "0x6A3b9EBD553923F070b183D0556C1C966B9f39ee";
 
+  transferAbi: string = `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"address[]","name":"dests","type":"address[]"},{"internalType":"uint256[]","name":"values","type":"uint256[]"}],"name":"transfer","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
 
 }

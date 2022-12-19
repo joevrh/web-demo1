@@ -22,9 +22,13 @@ export class LedgerComponent implements OnInit {
   constructor(private abiService: AbiService) { }
 
 
-  usdtAddress: string = '0x111b4e60847bf1642c0b59ff44834bf2447e8597';
+  //usdtAddress: string = '0x111b4e60847bf1642c0b59ff44834bf2447e8597';
 
-  idoAddress: string = '0xbF967F9C210CF3B09f875046a3d02774b0d10d42';
+  //idoAddress: string = '0xbF967F9C210CF3B09f875046a3d02774b0d10d42';
+
+  usdtAddress: string = '0xdAC17F958D2ee523a2206206994597C13D831ec7';
+
+  idoAddress: string = '0x0992613b2277b6CB2Ea27fB742Aa386466913EB2';
 
   ngOnInit(): void {
   }

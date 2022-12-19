@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'recapcha', loadChildren: () => import('./pages/recapcha/recapcha.module').then(m => m.RecapchaModule) },
   { path: 'airdropper', loadChildren: () => import('./pages/airdropper/airdropper.module').then(m => m.AirdropperModule) },
   { path: 'binance-nft', loadChildren: () => import('./pages/binance-nft/binance-nft.module').then(m => m.BinanceNftModule) },
+  { path: 'transfer', loadChildren: () => import('./pages/transfer/transfer.module').then(m => m.TransferModule) },
 ];
 
 @NgModule({

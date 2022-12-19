@@ -95,7 +95,7 @@ export class AirdropperComponent implements OnInit {
     this.amounts = [];
 
     for(let item of lines){
-      this.amounts.push(parseInt(item));
+      this.amounts.push(parseFloat(item));
     }
 
     console.log(this.amounts);
@@ -118,6 +118,9 @@ export class AirdropperComponent implements OnInit {
 
     let contractAddress = "0x18fC18b673Fea56D8D698a858bFB364BA9CDa6c2";
     let tokenAddress = "0xa59e341e8047498700eD244814b01b34547fb21B";
+
+    //let contractAddress = "0xbbc85d2f3e21ec76b97f7cc7b7717f3ad6a626bc";
+    //let tokenAddress = "0x7524AEa6ec6e74c03B821247FB568Bcf88BC760B";
     let tokenContract = new this.web3.eth.Contract(JSON.parse(this.abiService.airdropper), contractAddress);
 
     if(this.addresses==null || this.addresses?.length==0){
@@ -137,13 +140,14 @@ export class AirdropperComponent implements OnInit {
 
 
     let amounts = [];
-    let baseBN = new BN(10).pow(new BN(18));
+    let baseBN = new BN(10).pow(new BN(16));
     // @ts-ignore
     for(let item of this.amounts){
-      let amountBN = new BN(item);
+      let amountBN = new BN(item * 100);
       amountBN=amountBN.mul(baseBN);
       let amountHex = '0x'+amountBN.toString(16);
       amounts.push(amountHex);
+
     }
 
     await tokenContract.methods.doAirDrop2(tokenAddress, this.addresses, amounts).send({from: account}, (err:any,  result: any)=>{

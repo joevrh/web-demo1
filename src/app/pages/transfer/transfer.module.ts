@@ -1,24 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AirdropperRoutingModule } from './airdropper-routing.module';
-import { AirdropperComponent } from './airdropper.component';
+import { TransferRoutingModule } from './transfer-routing.module';
+import { TransferComponent } from './transfer.component';
+import {AirdropperRoutingModule} from "../airdropper/airdropper-routing.module";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzFormModule} from "ng-zorro-antd/form";
 import {FormsModule} from "@angular/forms";
-import {VrhDropperComponent} from "./vrh-dropper/vrh-dropper.component";
 
 
 @NgModule({
   declarations: [
-    AirdropperComponent,
-    VrhDropperComponent
+    TransferComponent
   ],
   imports: [
     CommonModule,
-    AirdropperRoutingModule, NzButtonModule,
+    TransferRoutingModule, NzButtonModule,
     NzFormModule,
     FormsModule,
   ]
 })
-export class AirdropperModule { }
+export class TransferModule { }
