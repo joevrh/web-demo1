@@ -34,7 +34,10 @@ export class TransferComponent implements OnInit {
     this.tokenAddress = "0xa59e341e8047498700eD244814b01b34547fb21B";
 
     //this.contractAddress = "0x5fd2b4c79cda423fcf088ab7a69aeb835de99cdc";
-    //this.tokenAddress = "0x7524AEa6ec6e74c03B821247FB568Bcf88BC760B";
+    //this.tokenAddress = "0xf0e28ac66971422ffa041930ba4668b8fcce8062";
+
+    //this.contractAddress = "0xC1C778db27ED9dBEBA5c4B3CB984777e62f9F45b";
+    //this.tokenAddress = "0x10535d0e2fcd6bfff4347429e0720c730c5cb408";
   }
 
   async onApprove(){
