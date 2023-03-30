@@ -247,11 +247,14 @@ export class WelcomeComponent implements OnInit {
     loginRequest.s = s;
     loginRequest.v = v;
 
+    //loginRequest.inviterCode =  'b9d645010801000';
+
 
     //let address = await web3.eth.personal.ecRecover(msg, signature);
     //console.log(address);
 
-    this.accessorService.post(window.serviceUrl + "/vrh-sys-api/api/v1/auth/login", loginRequest).subscribe((response: any)=>{
+    //this.accessorService.post(window.serviceUrl + "/vrh-sys-api/api/v1/auth/login", loginRequest).subscribe((response: any)=>{
+    this.accessorService.post(window.serviceUrl + "/finance-sys-api/api/v1/auth/login", loginRequest).subscribe((response: any)=>{
       console.log(response);
     });
 
@@ -268,13 +271,15 @@ export class WelcomeComponent implements OnInit {
 
   async onLogin(){
 
-    console.log(this.scale2Format(2711.105192));
+    //console.log(this.scale2Format(2711.105192));
 
-    /*this.accessorService.get(window.serviceUrl +  "/vrh-sys-api/api/v1/public/getNonce")
+    this.accessorService.get(window.serviceUrl +  "/finance-sys-api/api/v1/public/getNonce")
       .subscribe((response: any)=>{
         console.log(response.data);
         this.login(response.data);
-      })*/
+      });
+
+
   }
 
 
